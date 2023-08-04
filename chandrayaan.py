@@ -3,7 +3,7 @@ class Chandrayaan:
         self.position = initial_position
         self.direction = initial_direction
 
-    def forward(self):
+    def move_forward(self):
         if self.direction == 'N':
             self.position = (self.position[0], self.position[1] + 1, self.position[2])
         elif self.direction == 'S':
@@ -17,7 +17,7 @@ class Chandrayaan:
         elif self.direction == 'D':
                 self.position = (self.position[0], self.position[1], self.position[2] - 1) 
 
-    def backward(self):
+    def move_backward(self):
         if self.direction == 'N':
             self.position = (self.position[0], self.position[1] - 1, self.position[2])
         elif self.direction == 'S':
@@ -31,7 +31,7 @@ class Chandrayaan:
         elif self.direction == 'D':
             self.position = (self.position[0], self.position[1], self.position[2] + 1)
         
-    def left(self):
+    def turn_left(self):
         if self.direction == 'N':
             self.direction = 'W'
         elif self.direction == 'S':
@@ -45,7 +45,7 @@ class Chandrayaan:
         elif self.direction == 'D':
             self.direction = 'S'
 
-    def right(self):
+    def turn_right(self):
         if self.direction == 'N':
             self.direction = 'E'
         elif self.direction == 'S':
@@ -59,7 +59,7 @@ class Chandrayaan:
         elif self.direction == 'D':
             self.direction = 'N'
 
-    def up(self):
+    def turn_up(self):
         if self.direction in ['N', 'E', 'W', 'S']:
             self.direction = 'U'
         elif self.direction == 'D':
@@ -67,7 +67,7 @@ class Chandrayaan:
         elif self.direction == 'U':
             self.direction = 'N'
     
-    def down(self):
+    def turn_down(self):
         if self.direction in ['N', 'E', 'W', 'S']:
             self.direction = 'D'
         elif self.direction == 'U':
@@ -77,21 +77,21 @@ class Chandrayaan:
 
     def execute_command(self, command):
         if command == 'f':
-            self.forward()
+            self.move_forward()
             
         elif command == 'b':
-            self.backward()
+            self.move_backward()
             
         elif command == 'l':
-            self.left()
+            self.turn_left()
 
         elif command == 'r':
-            self.right()
+            self.turn_right()
 
         elif command == 'u':
-            self.up()
+            self.turn_up()
             
         elif command == 'd':
-            self.down()
+            self.turn_down()
 
            
